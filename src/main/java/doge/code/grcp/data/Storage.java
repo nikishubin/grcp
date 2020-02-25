@@ -1,4 +1,4 @@
-package doge.code.grcp.services;
+package doge.code.grcp.data;
 
 import com.google.protobuf.BoolValue;
 import com.google.protobuf.Empty;
