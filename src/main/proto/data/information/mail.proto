@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package grcp.proto;
+package grcp.proto.data.information;
 
 option java_multiple_files = true;
 option java_outer_classname = "MailProto";
 option java_package = "io.grcp.proto.mail";
 
 message Mail {
-    string from = 1;
-    repeated string to = 2;
+    string send_from = 1;
+    repeated string send_to = 2;
     string subject = 3;
     string body = 4;
 }

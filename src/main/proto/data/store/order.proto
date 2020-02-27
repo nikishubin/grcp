@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package grcp.proto.data.store;
+
+import "data/store/product.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "OrderProto";
+option java_package = "io.grcp.proto.order";
+
+message Order {
+    int64 id = 1;
+    ShippingData delivery_info = 2;
+    double full_price = 3;
+    repeated OrderEntry entries = 4;
+}
+
+message ShippingData {
+    string date = 1;
+    string address = 2;
+    string phone = 3;
+    double shipping_price = 4;
+}
+
+message OrderEntry {
+    int64 id = 1;
+    Product product = 2;
+    int64 quantity = 3;
+    double entries_price = 4;
+}
+
+
+

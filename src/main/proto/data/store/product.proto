@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package grcp.proto.data.store;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProductProto";
+option java_package = "io.grcp.proto.product";
+
+message Product {
+    int64 id = 1;
+    int64 catalog_id = 2;
+    MeasureData measure = 3;
+    double price = 4;
+    string photo_path = 5;
+}
+
+message MeasureData {
+    MeasureType type = 1;
+    int32 standard_weight = 2;
+}
+
+enum MeasureType {
+    WEIGHT = 0;
+    PIECE = 1;
+    PIECE_WEIGHT = 2;
+}

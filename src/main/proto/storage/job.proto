@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package grcp.proto.storage;
+
+import "google/protobuf/any.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "JobProto";
+option java_package = "io.grcp.proto.job";
+
+message Job {
+    int64 id = 1;
+    google.protobuf.Any body = 2;
+}

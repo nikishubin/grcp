@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package grcp.proto.storage;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import public "storage/job.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "StorageProto";
+option java_package = "io.grcp.proto.storage";
+
+message StorageRequest {
+    oneof definition {
+        int64 id = 1;
+        Job job = 2;
+    }
+}
+
+service Storage {
+    rpc use (google.protobuf.StringValue) returns (google.protobuf.BoolValue);
+    rpc pull (google.protobuf.Empty) returns (Job);
+    rpc offer (Job) returns (google.protobuf.Int64Value);
+    rpc bury (Job) returns (google.protobuf.Int64Value);
+    rpc delete (Job) returns (google.protobuf.BoolValue);
+}
